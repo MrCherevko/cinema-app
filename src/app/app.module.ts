@@ -6,7 +6,9 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { StoreModule } from '@ngrx/store';
+import { movieListReducer } from './movie-list/store/movie-list.reducers';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,11 @@ import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, Mat
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    StoreModule.forRoot({movieList: movieListReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]

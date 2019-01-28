@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cimema-app": {
+    "cinema-app": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/cimema-app",
+            "outputPath": "dist/cinema-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -58,18 +58,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "cimema-app:build"
+            "browserTarget": "cinema-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "cimema-app:build:production"
+              "browserTarget": "cinema-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "cimema-app:build"
+            "browserTarget": "cinema-app:build"
           }
         },
         "test": {
@@ -104,7 +104,7 @@
         }
       }
     },
-    "cimema-app-e2e": {
+    "cinema-app-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -113,11 +113,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "cimema-app:serve"
+            "devServerTarget": "cinema-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "cimema-app:serve:production"
+              "devServerTarget": "cinema-app:serve:production"
             }
           }
         },
@@ -133,5 +133,5 @@
       }
     }
   },
-  "defaultProject": "cimema-app"
+  "defaultProject": "cinema-app"
 }
