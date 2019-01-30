@@ -6,8 +6,8 @@ export class Movie {
     public gener: string;
     public director: string;
 
-    constructor(title: string, year: number, runtime: string, gener: string, director: string){
-        this.id = this.makeId(10);
+    constructor(id: string = undefined,title: string, year: number, runtime: string, gener: string, director: string){
+        this.id = (id) ? id : this.makeId(10);
         this.title = title;
         this.year = year;
         this.runtime = runtime;

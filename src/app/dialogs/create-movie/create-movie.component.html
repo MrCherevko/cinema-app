@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Add new Movie</h2>
+<form (ngSubmit)="createMovie(myForm)" #myForm="ngForm" >
+  <div mat-dialog-content class="container">
+      <mat-form-field>
+          <input matInput placeholder="Title" name="title" #title="ngModel" [ngModel]="myForm.value.title" required>
+          <mat-error *ngIf="title.invalid">Title is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Year" type="number" #year="ngModel" [ngModel]="myForm.value.year" name="year" required>
+          <mat-error *ngIf="year.invalid">Year is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Runtime" #runtime="ngModel" [ngModel]="myForm.value.runtime" name="runtime" required>
+            <mat-error *ngIf="runtime.invalid">Runtime is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Genre" #genre="ngModel" [ngModel]="myForm.value.genre" name="genre" required>
+            <mat-error *ngIf="genre.invalid">Genre is required</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Director" #director="ngModel" [ngModel]="myForm.value.director" name="director" required>
+            <mat-error *ngIf="director.invalid">Director is required</mat-error>
+        </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+      <button type="submit" [disabled]="myForm.invalid" mat-stroked-button color="primary">Create</button>
+      <button type="button" mat-stroked-button color="warn" mat-dialog-close>Close</button>
+  </div>
+</form>

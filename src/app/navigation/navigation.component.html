@@ -2,14 +2,12 @@
   <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       mode="over">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+    <mat-toolbar>Movies Menu</mat-toolbar>
+    <mat-nav-list color="primary">
+      <a mat-list-item (click)="addMovie()" (click)="drawer.toggle()">Add new movie</a>
     </mat-nav-list>
   </mat-sidenav>
-  <mat-sidenav-content>
+  <mat-sidenav-content mode="over">
     <mat-toolbar color="primary">
       <button
         type="button"
