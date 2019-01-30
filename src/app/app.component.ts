@@ -1,7 +1,7 @@
-import * as MovieActions from './movie-list/store/movie-list.actions';
+import * as MovieActions from './store/movie-list.actions';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Movie } from './movie-list/movie.model';
+import { Movie } from './models/movie.model';
 
 @Component({
   selector: 'app-root',

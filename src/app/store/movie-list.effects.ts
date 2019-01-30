@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import * as MovieActions from './movie-list.actions';
 import { map, switchMap } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { Movie } from '../movie.model';
+import { Movie } from '../models/movie.model';
 
 @Injectable()
 export class MovieListEffects {
@@ -22,8 +22,9 @@ export class MovieListEffects {
             for(let x = 0; x < response.results.length; x++){
                 let movieObject = response.results[x];
                 let year = response.results[x].release_date.substring(0, 4);
-                let genres = this.createGenresString(response.results[x].genre_ids);
-                let newMovie = new Movie(movieObject.id,movieObject.title,year,'',genres,'');
+                let genres = this.creategenresString(response.results[x].genre_ids);
+                let posterImage = response.results[x].poster_path;
+                let newMovie = new Movie(movieObject.id,movieObject.title,year,'',genres,'',posterImage);
                 movieArray.push(newMovie);
             }
 
@@ -31,7 +32,7 @@ export class MovieListEffects {
         })
     );
 
-    createGenresString(genresIdArray) {
+    creategenresString(genresIdArray) {
         let genresArray = [];
         for(let i = 0; i < genresIdArray.length; i++) {
             genresArray.push(this.genresArray.find(x => x.id === genresIdArray[i]).name);

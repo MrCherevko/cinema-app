@@ -1,0 +1,20 @@
+
+<div fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <mat-card fxFlexAlign="center" *ngFor="let movie of (state | async).movies; let i = index;">
+    <mat-card-header>
+      <mat-card-title>{{movie.title}}</mat-card-title>
+      <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image [src]="'https://image.tmdb.org/t/p/w500' + movie.posterImage">
+    </mat-card-content>
+    <mat-card-actions align="end">
+      <button mat-icon-button (click)="editMovie(i,movie)">
+          <mat-icon color="accent" aria-label="Edit movie">edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="removeMovie(i, movie.title)">
+          <mat-icon color="warn" aria-label="Delete movie">delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>
