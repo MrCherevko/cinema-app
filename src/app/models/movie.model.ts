@@ -1,13 +1,13 @@
 export class Movie {
     public id: string;
     public title: string;
-    public year: number;
+    public year: number | string;
     public runtime: string;
     public genre: string;
     public director: string;
     public posterImage: string;
 
-    constructor(id: string = undefined,title: string, year: number, runtime: string, genre: string, director: string,posterImage: string = undefined){
+    constructor(id: string = undefined,title: string, year: number | string, runtime: string, genre: string, director: string,posterImage: string = undefined){
         this.id = (id) ? id : this.makeId(10);
         this.title = title;
         this.year = year;

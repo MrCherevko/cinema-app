@@ -13,7 +13,7 @@ export class DialogService {
   
   createNewMovie(movie: Movie = undefined) {
     let dialogRef = this.dialog.open(CreateMovieComponent, {
-      data: movie,
+      data: (movie) ? movie : new Movie(undefined,'','','','',''),
       autoFocus: false
     });
     return dialogRef.afterClosed();
