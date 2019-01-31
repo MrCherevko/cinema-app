@@ -2,7 +2,7 @@
 <div fxLayout="row wrap" fxLayoutGap="0.5%" fxLayoutAlign="center">
   <mat-card fxFlexAlign="center" *ngFor="let movie of (state | async).movies; let i = index;">
     <mat-card-header>
-      <mat-card-title>{{movie.title}}</mat-card-title>
+      <mat-card-title>{{movie.title | titleSanitizer}}</mat-card-title>
       <mat-card-subtitle>{{movie.genre}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>

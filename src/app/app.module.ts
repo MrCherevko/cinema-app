@@ -29,6 +29,9 @@ import {
   MatOptionModule, 
   MatSelectModule } from '@angular/material';
 import { AreYouSureComponent } from './dialogs/are-you-sure/are-you-sure.component';
+import { TitleSanitizerPipe } from './pipes/title-sanitizer.pipe';
+import { TitleCasePipe } from '@angular/common';
+import { InputTrimModule } from 'ng2-trim-directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { AreYouSureComponent } from './dialogs/are-you-sure/are-you-sure.compone
     CreateMovieComponent,
     MovieCardsComponent,
     NavComponent,
-    AreYouSureComponent
+    AreYouSureComponent,
+    TitleSanitizerPipe
   ],
   imports: [
     BrowserModule,
@@ -59,10 +63,11 @@ import { AreYouSureComponent } from './dialogs/are-you-sure/are-you-sure.compone
     FormsModule,
     HttpClientModule,
     FlexLayoutModule,
-    MatCardModule
+    MatCardModule,
+    InputTrimModule
   ],
   entryComponents: [CreateMovieComponent,AreYouSureComponent],
-  providers: [],
+  providers: [TitleCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

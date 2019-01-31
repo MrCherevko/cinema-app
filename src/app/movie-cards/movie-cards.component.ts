@@ -21,13 +21,17 @@ export class MovieCardsComponent implements OnInit {
   ngOnInit() {
   }
 
-  editMovie(index: number,movie){
-    this.dialogService.createNewMovie(movie).subscribe((form:any) => {
-      if(form) {
-        let newMovie: Movie = new Movie(undefined,form.title,form.year,form.runtime,form.genre,form.director,movie.posterImage);
-        this.store.dispatch(new MovieActions.UpdateMovie({index,movie: newMovie}));
-      }
-    })
+  editMovie(index: number,movie: Movie){
+    if(!movie.runtime){
+      this.store.dispatch(new MovieActions.tryToGetMovieDetails({index, id: movie.id}))
+    } else {
+      this.dialogService.createNewMovie(movie).subscribe((form:any) => {
+        if(form) {
+          let newMovie: Movie = new Movie(undefined,form.title,form.year,form.runtime,form.genre,form.director,movie.posterImage);
+          this.store.dispatch(new MovieActions.UpdateMovie({index,movie: newMovie}));
+        }
+      })
+    }
   }
 
   removeMovie(index, title) {

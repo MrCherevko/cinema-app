@@ -3,23 +3,23 @@
 <form (ngSubmit)="createMovie(myForm)" #myForm="ngForm" >
   <div mat-dialog-content class="container">
     <mat-form-field>
-        <input matInput placeholder="Title" name="title" #title="ngModel" [ngModel]="(form.title) ? form.title : myForm.value.title" required>
+        <input trim="blur" matInput placeholder="Title" name="title" #title="ngModel" [ngModel]="(form.title) ? form.title : myForm.value.title" required>
         <mat-error *ngIf="title.invalid">Title is required</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="Year" type="number" #year="ngModel" [ngModel]="(form.year) ? form.year : myForm.value.year" name="year" required>
+        <input trim="blur" matInput placeholder="Year" type="number" #year="ngModel" [ngModel]="(form.year) ? form.year : myForm.value.year" name="year" required>
         <mat-error *ngIf="year.invalid">Year is required</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="Runtime" #runtime="ngModel" [ngModel]="(form.runtime) ? form.runtime : myForm.value.runtime" name="runtime" required>
+        <input trim="blur" matInput placeholder="Runtime" #runtime="ngModel" [ngModel]="(form.runtime) ? form.runtime : myForm.value.runtime" name="runtime" required>
         <mat-error *ngIf="runtime.invalid">Runtime is required</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="genre" #genre="ngModel" [ngModel]="(form.genre) ? form.genre : myForm.value.genre" name="genre" required>
+        <input trim="blur" matInput placeholder="genre" #genre="ngModel" [ngModel]="(form.genre) ? form.genre : myForm.value.genre" name="genre" required>
         <mat-error *ngIf="genre.invalid">genre is required</mat-error>
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="Director" #director="ngModel" [ngModel]="(form.director) ? form.director : myForm.value.director" name="director" required>
+        <input trim="blur" matInput placeholder="Director" #director="ngModel" [ngModel]="(form.director) ? form.director : myForm.value.director" name="director" required>
         <mat-error *ngIf="director.invalid">Director is required</mat-error>
     </mat-form-field>
   </div>
